@@ -102,13 +102,13 @@ if not os.path.exists('out/'):
 i = 0
 
 for it in range(20000):
-    if it % 1000 == 0:
-        samples = sess.run(G_sample, feed_dict={Z: sample_Z(16, Z_dim)})
-
-        fig = plot(samples)
-        plt.savefig('out/{}.png'.format(str(i).zfill(3)), bbox_inches='tight')
-        i += 1
-        plt.close(fig)
+#     if it % 1000 == 0:
+#         samples = sess.run(G_sample, feed_dict={Z: sample_Z(16, Z_dim)})
+# 
+#         fig = plot(samples)
+#         plt.savefig('out/{}.png'.format(str(i).zfill(3)), bbox_inches='tight')
+#         i += 1
+#         plt.close(fig)
 
     X_mb, _ = mnist.train.next_batch(mb_size)
     
@@ -116,6 +116,11 @@ for it in range(20000):
     _, G_loss_curr = sess.run([G_solver, G_loss], feed_dict={Z: sample_Z(mb_size, Z_dim)})
 
     if it % 1000 == 0:
+        samples = sess.run(G_sample, feed_dict={Z: sample_Z(1, Z_dim)})
+        fout = open('out/{}.txt'.format(str(i).zfill(3)), 'w')
+        fout.write(str(samples))
+        fout.close()
+        
         print('Iter: {}'.format(it))
         print('D loss: {:.4}'. format(D_loss_curr))
         print('G_loss: {:.4}'.format(G_loss_curr))
