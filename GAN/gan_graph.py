@@ -1,5 +1,3 @@
-# import tensorflow as tf
-# from tensorflow.examples.tutorials.mnist import input_data
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -157,5 +155,3 @@ if __name__ == '__main__':
             print('D loss: {:.4}'. format(D_loss_curr))
             print('G_loss: {:.4}'.format(G_loss_curr))
             print()
-            
-            
