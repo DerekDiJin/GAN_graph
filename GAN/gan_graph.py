@@ -134,13 +134,13 @@ if __name__ == '__main__':
     i = 0
 
     for it in range(20000):
-        if it % 1000 == 0:
-            samples = sess.run(G_sample, feed_dict={Z: sample_Z(1, Z_dim)})
-     
-            fig = plot(samples)
-            plt.savefig('out/{}.png'.format(str(i).zfill(3)), bbox_inches='tight')
-            i += 1
-            plt.close(fig)
+#         if it % 1000 == 0:
+#             samples = sess.run(G_sample, feed_dict={Z: sample_Z(1, Z_dim)})
+#      
+#             fig = plot(samples)
+#             plt.savefig('out/{}.png'.format(str(i).zfill(3)), bbox_inches='tight')
+#             i += 1
+#             plt.close(fig)
     
 #         X_mb, _ = mnist.train.next_batch(mb_size)
         iter = it % 76
