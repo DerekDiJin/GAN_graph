@@ -155,7 +155,7 @@ if __name__ == '__main__':
         if it % 1000 == 0:
             samples = sess.run(G_sample, feed_dict={Z: sample_Z(1, Z_dim)})
             fout = open('out_temp/{}.txt'.format(str(i).zfill(3)), 'w')
-            fout.write(samples)
+            fout.write(str(samples))
             fout.close()
             print('Iter: {}'.format(it))
             print('D loss: {:.4}'. format(D_loss_curr))
